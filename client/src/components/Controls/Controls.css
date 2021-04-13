@@ -1,0 +1,26 @@
+.input-buttons{
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-labels{
+    margin: 1rem 2rem;
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width : 800px){
+    .input-labels{
+        width: 30%;
+    }
+}

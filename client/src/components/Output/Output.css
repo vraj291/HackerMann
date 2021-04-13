@@ -1,0 +1,22 @@
+.out-wrapper{
+    margin: 1rem auto;
+    padding: 1rem;
+    height: 12rem;
+    width: 90%;
+    background-color: rgb(160, 156, 156);
+    border-radius: 10px;
+}
+
+.output{
+    background-color: black;
+    margin: 0.5rem 0.2rem;
+    border-radius: 10px;
+    height: 70%;
+}
+
+.exec-info{
+    margin: 0.5rem 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

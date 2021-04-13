@@ -1,0 +1,19 @@
+.custom-input{
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 90%;
+    background-color: rgb(194, 187, 187);
+    border-radius: 15px;
+}
+
+.label{
+    color : black;
+    display: flex;
+    justify-content: center;
+}
+
+.input{
+    padding: 0 0.3rem 0;
+    background-color: #2b2e4a;
+    border-radius: 10px;
+}
