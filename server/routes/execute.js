@@ -1,7 +1,7 @@
 const express = require('express')
-const cors = require('cors')
-const app = express()
 const fetch= require('node-fetch')
+
+const router = express.Router()
 
 const he_url = 'https://api.hackerearth.com/v4/partner/code-evaluation/submissions/'
 const client_id = '3da76c47d7994800f7680ad9401d0340b222a002b76b.api.hackerearth.com'
@@ -71,10 +71,7 @@ const getResults = async (data,he_id) => {
     }
 }
 
-app.use(cors())
-app.use(express.json())
-
-app.post("/execute",async (req,res) => {
+router.post("/execute",async (req,res) => {
     let data = JSON.stringify({    
         'source': req.body.source,
         'lang': req.body.lang,
@@ -88,5 +85,5 @@ app.post("/execute",async (req,res) => {
     res.send(results)
 })
 
-const port = process.env.PORT || 8080
-app.listen(port,console.log(`Server Running on port ${port}`))
+module.exports = router
+

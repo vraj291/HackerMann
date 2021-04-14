@@ -11,7 +11,10 @@ export const LineNumbers = (props) => {
         root: {
             color : '#FAFAFA',
             fontFamily : 'Lucida Console',
-            fontSize : 'small'
+            fontSize : 'small',
+            textAlign : 'right',
+            padding : '0.3rem',
+            overflowY : 'hidden'
         }
     });
 
@@ -32,7 +35,7 @@ export const LineNumbers = (props) => {
             inputProps = {{className : classes.root}}
             className = 'lines'
             multiline
-            rowsMax = {18}
+            rows = {18}
             value = {content}
             readOnly
         />

@@ -6,14 +6,15 @@
     border-radius: 15px;
 }
 
-.label{
-    color : black;
-    display: flex;
-    justify-content: center;
-}
-
 .input{
     padding: 0 0.3rem 0;
     background-color: #2b2e4a;
     border-radius: 10px;
+    width: 100%;
+}
+
+.label{
+    color : black;
+    display: flex;
+    justify-content: center;
 }

@@ -8,25 +8,36 @@ import './CustomInput.css'
 export const CustomInput = (props) => {
 
     const [checked,setChecked] = useState(false)
-    const [content,setContent] = useState('')
+    let content = ''
+
+    const useStyles = makeStyles({
+        root: {
+            color : '#FAFAFA',
+            fontFamily : 'Lucida Console',
+            fontSize : 'small',
+            padding : '0.3rem'
+        }
+    });
+
+    const classes = useStyles();
     
     const toggle = () => {
         if(checked) {
             setChecked(false)
-            setContent('')
         }else{
             setChecked(true)
-            setContent(
-                <InputBase 
-                    className = 'code-segment'
-                    //inputProps = {{className : classes.root}}
-                    multiline
-                    rows = {5}
-                    value = {props.input}
-                    onChange = {(e) => props.handleInput(e.target.value)}
-                />
-            )
         }
+    }
+
+    if(checked){
+    content = <InputBase 
+                className = 'input'
+                inputProps = {{className : classes.root}}
+                multiline
+                rows = {5}
+                value = {props.input}
+                onChange = {(e) => props.handleInput(e.target.value)}
+            />
     }
 
     return(

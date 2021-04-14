@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import socketIOClient from "socket.io-client";
 import {CodeEditor} from './components/CodeEditor/CodeEditor'
 import {Controls} from './components/Controls/Controls'
 import {Output} from './components/Output/Output'
@@ -6,27 +7,34 @@ import {Footer} from './components/Footer/Footer'
 import {languages} from './components/languages'
 import './App.css';
 
+const ENDPOINT = "http://localhost:8080";
+
 export const App = () => {
 
-  const [code,setCode] = useState("print('Hello World')")
+  const [code,setCode] = useState("for i in range(5):\n\tprint(i)")
   const [lang,setLang] = useState('C')
-  const [response,setResp] = useState({})
+  const [response,setResp] = useState('')
   const [input,setInput] = useState('')
-  const [he_id,setHe_id] = useState(undefined)
 
-  const handleExecute = async () => {
-    let data = JSON.stringify({
+  const socket = socketIOClient(ENDPOINT)
+
+  socket.on('getChanges', (_code) => {
+    setCode(_code)
+  })
+
+  const handleExecute = async (he_id) => {
+    /*let data = JSON.stringify({
       source : code,
       lang : languages[lang],
       input : input,
       he_id : he_id
     })
     let headers = {'Content-Type': 'application/json'}
-    setResp({compiling : 'true'})
-    await fetch("http://localhost:8080/execute",{method:'post', body : data, headers : headers })
+    setResp(true)
+    await fetch("http://localhost:8080/api/execute",{method:'post', body : data, headers : headers })
     .then(rs => rs.text())
     .then(body => setResp(JSON.parse(body)))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err))*/
   }
 
   return (
@@ -35,7 +43,7 @@ export const App = () => {
         code = {code}
         lang = {lang}
         handleLang = {(e) => setLang(e)}
-        handleExecute = {async () => await handleExecute()}
+        handleExecute = {async () => await handleExecute(undefined)}
       />
       <CodeEditor
         code = {code}
@@ -45,6 +53,7 @@ export const App = () => {
       />
       <Output
         response = {response}
+        handleQueue = {(e) => setTimeout(async (e) => await handleExecute(e),3000)}
       />
       <Footer/>
     </div>
