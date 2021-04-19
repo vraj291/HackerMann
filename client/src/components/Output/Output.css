@@ -1,7 +1,7 @@
 .out-wrapper{
     margin: 1rem auto;
     padding: 1rem;
-    height: 12rem;
+    height: 13rem;
     width: 90%;
     background-color: rgb(160, 156, 156);
     border-radius: 10px;
@@ -12,6 +12,11 @@
     margin: 0.5rem 0.2rem;
     border-radius: 10px;
     height: 70%;
+}
+
+.status{
+    display: grid;
+    place-items: center;
 }
 
 .exec-info{

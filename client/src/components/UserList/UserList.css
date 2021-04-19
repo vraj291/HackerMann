@@ -1,0 +1,38 @@
+.user{
+    margin: 0.3rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+    color: #FAFAFA;
+    font-size: large;
+    font-family: 'Saira Condensed', sans-serif;
+    background-color: #e91e63;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userlabel{
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 8px;
+    font-size: large;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+.userlist{
+    margin: 0.5rem auto 2rem;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    background-color:rgb(160, 156, 156);
+}
+
+.typing{
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    background-color: rgb(34, 204, 34);
+}

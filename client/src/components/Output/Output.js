@@ -27,7 +27,18 @@ export const Output = (props) => {
         }else{
             if(props.response.req_status === 'REQUEST_QUEUED'){
                 setStatus('The API request has been queued.')
+                console.log(props.response)
                 props.handleQueue(props.response.he_id)
+            }else if(props.response.req_status === 'CODE_COMPILED'){
+                if(props.response.compile_status === 'OK'){
+                    setStatus('The code has been compiled.')
+                    props.handleQueue(props.response.he_id)
+                }else{
+                    setStatus('Compilation Error')
+                    setOutput(props.response.compile_status)
+                    setTime('-')
+                    setMemory('-')
+                }
             }else{
                 if(props.response.compile_status !== 'OK'){
                     setStatus('Compilation Error')
@@ -63,6 +74,10 @@ export const Output = (props) => {
             fontFamily : 'Lucida Console',
             fontSize : 'small',
             padding : '0.3rem 0.5rem'
+        },
+        typo: {
+            fontSize : 'large',
+            fontFamily : "'Saira Condensed', sans-serif"
         }
     });
 
@@ -70,7 +85,9 @@ export const Output = (props) => {
 
     return(
         <div className='out-wrapper'>
-            <Typography>{status}</Typography>
+            <div className='status'>
+                <Typography className={classes.typo}>{status}</Typography>
+            </div>
             <div className='output'>
                 <InputBase 
                     inputProps = {{className : classes.root}}
@@ -82,8 +99,8 @@ export const Output = (props) => {
                 />
             </div>
             <div className='exec-info'>
-                <Typography>Time used : {time}</Typography>
-                <Typography>Memory used : {memory}</Typography>
+                <Typography className={classes.typo}>Time used : {time}</Typography>
+                <Typography className={classes.typo}>Memory used : {memory}</Typography>
             </div>
         </div>
 )}

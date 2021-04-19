@@ -2,8 +2,10 @@
     margin: 2rem auto;
     padding: 1rem;
     width: 90%;
-    background-color: rgb(194, 187, 187);
+    background-color: rgb(160, 156, 156);
     border-radius: 15px;
+    display: grid;
+    place-items: center;
 }
 
 .input{
@@ -15,6 +17,8 @@
 
 .label{
     color : black;
+    font-size : large;
+    font-family : 'Saira Condensed', sans-serif;
     display: flex;
     justify-content: center;
 }

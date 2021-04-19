@@ -1,5 +1,5 @@
 export const errors = {
-    'AC' : 'Successful Compilation',
+    'AC' : 'Successful Execution',
     'MLE' : 'Memory Limit Exceeded',
     'TLE' : 'Time Limit Exceeded',
 	'SIGXFSZ' : "The output file size exceeded beyond allowed system value",

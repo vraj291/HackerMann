@@ -3,7 +3,7 @@ import {languages} from '../languages'
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
-import {GetApp, WbIncandescentOutlined} from '@material-ui/icons'
+import {GetApp} from '@material-ui/icons'
 import {Button} from '../Button/Button'
 import './Controls.css'
 import { IconButton } from '@material-ui/core';
@@ -13,6 +13,11 @@ export const Controls = (props) => {
     const useStyles = makeStyles({
         root: {
             color : '#FAFAFA'
+        },
+        typo: {
+            color : '#FAFAFA',
+            fontSize : 'large',
+            fontFamily : "'Saira Condensed', sans-serif"
         }
     });
 
@@ -21,10 +26,19 @@ export const Controls = (props) => {
     return(
         <div className='controls'>
             <div className='input-buttons'>
-                <Button color='red'/>
-                <Button color='yellow'/>
                 <Button 
-                    color = 'green'
+                    color='red'
+                    text='Leave Room'
+                    onClick = {async() => await props.handleLeaveRoom()}
+                />
+                <Button 
+                    color='yellow'
+                    text='Clear Code'
+                    onClick = {props.handleClear}
+                />
+                <Button 
+                    color = 'rgb(26, 221, 19)'
+                    text = 'Execute Code'
                     onClick = {props.handleExecute}
                 />
             </div>
@@ -38,8 +52,8 @@ export const Controls = (props) => {
                     </a>
                 </IconButton>
                 <TextField
-                    InputProps={{className : classes.root}}
-                    InputLabelProps={{className : classes.root}}
+                    InputProps={{className : classes.typo}}
+                    InputLabelProps={{className : classes.typo}}
                     select
                     label="Language"
                     variant = 'outlined'

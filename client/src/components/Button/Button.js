@@ -8,5 +8,11 @@ export const Button = (props) => {
             style = {{background: props.color}}
             onClick = {props.onClick}
         >
+            {props.text ?
+                <div className='label-hidden'>
+                    {props.text}
+                </div>
+                : <></>
+            }   
         </div>
 )}

@@ -1,9 +1,10 @@
-import React,{useEffect,useState} from 'react'
-import InputBase from '@material-ui/core/InputBase';
+import React,{useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import InputBase from '@material-ui/core/InputBase';
 import Switch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './CustomInput.css'
+import { Typography } from '@material-ui/core';
 
 export const CustomInput = (props) => {
 
@@ -16,6 +17,10 @@ export const CustomInput = (props) => {
             fontFamily : 'Lucida Console',
             fontSize : 'small',
             padding : '0.3rem'
+        },
+        typo: {
+            fontSize : 'large',
+            fontFamily : "'Saira Condensed', sans-serif"
         }
     });
 
@@ -43,14 +48,14 @@ export const CustomInput = (props) => {
     return(
         <div className='custom-input'>
             <FormControlLabel
-                className='label'
+                className="label"
                 control={
                 <Switch
                     color='secondary'
                     checked={checked}
                     onChange={toggle}
                 />}
-                label="Custom Input"
+                label={<Typography className={classes.typo}>Custom Input</Typography>}
                 labelPlacement="start"
             />
             {content}

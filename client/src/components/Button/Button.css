@@ -5,3 +5,23 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
+.label-hidden{
+    position: absolute;
+    background-color: #93329e;
+    color: #ffe3fe;
+    padding: 0.3rem;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgb(13, 14, 13);
+    font-size : large;
+    font-family : 'Saira Condensed', sans-serif;
+    display: none;
+    cursor: help;
+}
+
+.butt:hover > .label-hidden{
+    display: block;
+    transition: 0.5s ease-in-out
+}
