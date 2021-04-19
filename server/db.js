@@ -1,7 +1,7 @@
 const {MongoClient} = require('mongodb')
 const {addIoUtilities} = require('./routes/socket')
 
-const uri = "mongodb+srv://vraj291:test123@bugtracker.x1kzp.mongodb.net/main?retryWrites=true&w=majority";
+const uri = "mongodb+srv://<username>:<passsword>@bugtracker.x1kzp.mongodb.net/<database>?retryWrites=true&w=majority";
 
 const addNewUser = async ({user_name,room_name},io) => {
 
