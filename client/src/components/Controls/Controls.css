@@ -19,6 +19,52 @@
     align-items: center;
 }
 
+.download-code:hover .label-hidden{
+    display: block;
+    transition: 0.5s ease-in-out
+}
+
+.leave-wrapper{
+    display: none;
+    position: absolute;
+    background-color: rgb(170, 202, 250);
+    padding: 2rem;
+    border-radius: 10px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 2rem;
+    font-weight: 800;
+    box-shadow: 0 0 0 100rem rgb(0,0,0,0.7);
+    z-index: 5;
+}
+
+.leave-button-wrapper{
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.leave-button{
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: 0.3rem;
+    width: 10rem;
+    font-weight: bold;
+    color: #e91e63;
+    border: solid 4px #e91e63;
+    background-color: rgb(170, 202, 250);
+}
+
+.leave-button:hover{
+    border: solid 4px black;
+    color: black;
+    background-color: #e91e63;
+    transform: scale(1.05,1.05);
+    transition: all 0.4s ease-out;
+}
+
 @media (max-width : 800px){
     .input-labels{
         width: 30%;

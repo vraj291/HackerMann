@@ -1,0 +1,21 @@
+export const boilerplate = {
+    'C' : '#include<stdio.h>\n\nint main(void){\n\n//code here\n\n}',
+    'C++'	: '#include<iostream>\nusing namespace std;\n\nint main(){\n\n//code here\n\nreturn 0;\n}',
+    'C++11'	: '#include<iostream>\nusing namespace std;\n\nint main(){\n\n//code here\n\nreturn 0;\n}',
+    'C++14'	: '#include<iostream>\nusing namespace std;\n\nint main(){\n\n//code here\n\nreturn 0;\n}',
+    'C#'	: 'using System;\n\nclass Program{\npublic static void Main(string[] args){\n\n//code here\n\n}\n}',
+    'Go'	: 'package main\n\nimport "fmt"\nfunc main(){\n\n//code here\n\n}',
+    'Java'	: 'import java.io.*;\n\npublic class HackerMann{\npublic static void main(String[] args){\n\n//code here\n\n}\n}',
+    'Java 8'	: 'import java.io.*;\n\npublic class HackerMann{\npublic static void main(String[] args){\n\n//code here\n\n}\n}',
+    'JavaScript'	: '//code here',
+    'Kotlin'	: 'fun main(args : Array<String>){\n\n//code here\n\n}',
+    'Objective C'	: '#include<iostream>\nusing namespace std;\n\nint main(){\n\n//code here\n\nreturn 0;\n}',
+    'PHP'	: '<?php\n\n//code here\n\n?>',
+    'Python 2'	: '#code here',
+    'Python 3'	: '#code here',
+    'R'	: '#code here',
+    'Ruby'	: '#code here',
+    'Rust'	: 'fn main(){\n\n//code here\n\n}',
+    'Scala'	: '//code here',
+    'Swift'	: '//code here'
+}

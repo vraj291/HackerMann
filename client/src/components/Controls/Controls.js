@@ -1,5 +1,5 @@
-import React from 'react'
-import {languages} from '../languages'
+import React, { useState } from 'react'
+import {languages} from '../../utils/languages'
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,6 +9,18 @@ import './Controls.css'
 import { IconButton } from '@material-ui/core';
 
 export const Controls = (props) => {
+
+    const [isLeaving,setLeaving] = useState(false)
+
+    const toggle = () => {
+        if(isLeaving){
+            setLeaving(false)
+            document.getElementsByClassName('leave-wrapper')[0].style.display = 'none'
+        }else{
+            setLeaving(true)
+            document.getElementsByClassName('leave-wrapper')[0].style.display = 'block'
+        }
+    }
 
     const useStyles = makeStyles({
         root: {
@@ -29,7 +41,7 @@ export const Controls = (props) => {
                 <Button 
                     color='red'
                     text='Leave Room'
-                    onClick = {async() => await props.handleLeaveRoom()}
+                    onClick = {toggle}
                 />
                 <Button 
                     color='yellow'
@@ -45,9 +57,13 @@ export const Controls = (props) => {
             <div className='input-labels'>
                 <IconButton>
                     <a 
+                        className='download-code'
                         href = {'data:text/plain;charset=utf-8,' + encodeURIComponent(props.code)}
                         download = 'hackermann.txt'
                     >
+                        <div className='label-hidden'>
+                            Download
+                        </div>
                         <GetApp color='secondary'/>
                     </a>
                 </IconButton>
@@ -66,6 +82,13 @@ export const Controls = (props) => {
                         </MenuItem>
                     ))}
                 </TextField>
+            </div>
+            <div className='leave-wrapper'>
+                Are you sure you want to leave?
+                <div className='leave-button-wrapper'>
+                    <button className='leave-button' onClick = {() => props.handleLeaveRoom()}>Ermm.. Positive</button>
+                    <button className='leave-button' onClick = {toggle}>Maybe Not</button>
+                </div>
             </div>
         </div>
 )}

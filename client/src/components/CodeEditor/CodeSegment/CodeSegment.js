@@ -9,7 +9,7 @@ export const CodeSegment= (props) => {
         root: {
             color : '#FAFAFA',
             fontFamily : 'Lucida Console',
-            fontSize : 'small',
+            fontSize : 'medium',
             padding : '0.3rem'
         }
     });
@@ -23,6 +23,12 @@ export const CodeSegment= (props) => {
             multiline
             rows = {18}
             value = {props.code}
+            onKeyDown = {(e) => {
+                if(e.keyCode === 9){
+                    e.preventDefault()
+                    props.handleCode(prev => prev+'\t')
+                }
+            }}
             onChange = {(e) => props.handleCode(e.target.value)}
         />
 )}

@@ -11,10 +11,10 @@ export const LineNumbers = (props) => {
         root: {
             color : '#FAFAFA',
             fontFamily : 'Lucida Console',
-            fontSize : 'small',
+            fontSize : 'medium',
             textAlign : 'right',
             padding : '0.3rem',
-            overflowY : 'hidden'
+            overflow : 'auto'
         }
     });
 

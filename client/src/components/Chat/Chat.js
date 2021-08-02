@@ -105,10 +105,10 @@ export const Chat = (props) => {
     const [open,setOpen] = useState(false)
     const [msgs,updateMsgs] = useState([])
 
-    useEffect(() => { 
+    useEffect(() => {
+        props.socket.off('updateMessages') 
         props.socket.on('updateMessages', (msg) => {
-            if(msg.user_name !== props.user)
-                updateMsgs(prev => [...prev,msg])
+            updateMsgs(prev => [...prev,msg])
         })
     },[])
 
@@ -120,8 +120,11 @@ export const Chat = (props) => {
         }])
 
         props.socket.emit('addMessage',{
-            user_name: props.user,
-            msg
+            msg : {
+                user_name: props.user,
+                msg
+            },
+            room_id : props.room_id
         })  
 
     }

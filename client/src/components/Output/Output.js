@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import {errors} from '../errors'
+import {errors} from '../../utils/errors'
 import InputBase from '@material-ui/core/InputBase';
 import './Output.css'
 import { Typography } from '@material-ui/core';

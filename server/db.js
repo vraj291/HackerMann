@@ -1,12 +1,23 @@
 const {MongoClient} = require('mongodb')
 const {addIoUtilities} = require('./routes/socket')
 
-const uri = "mongodb+srv://<username>:<passsword>@bugtracker.x1kzp.mongodb.net/<database>?retryWrites=true&w=majority";
+const uri = "mongodb+srv://vraj291:test123@bugtracker.x1kzp.mongodb.net/main?retryWrites=true&w=majority";
+
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
 
 const addNewUser = async ({user_name,room_name},io) => {
 
     let details = {
         room_name,
+        room_id : '',
         users : []
     }
 
@@ -14,17 +25,19 @@ const addNewUser = async ({user_name,room_name},io) => {
 
     await new Promise((resolve) => {
     client.connect((err) => {
-      if (err) throw err;
+      if (err) resolve(true);
       const collection = client.db('main').collection("hackermann_rooms")
       collection.find({room_name}).toArray((err,result) => {
         if (err) throw err;
         if (result.length == 0){
+            room_id = makeid(6)
             details.users = [user_name]
-            collection.insertOne({room_name,users:[user_name]},(err,res) => {
+            collection.insertOne({room_name,room_id,users : [user_name]},(err,res) => {
                 if (err) throw err;
-                io = addIoUtilities(io,details.room_name)
+                console.log(room_id)
+                io = addIoUtilities(io,room_id)
                 client.close()
-                resolve()
+                resolve(false)
             })
         }else{
             let newvals = {$set : {users : [...result[0].users,user_name]}}
@@ -32,20 +45,25 @@ const addNewUser = async ({user_name,room_name},io) => {
             collection.updateOne({room_name},newvals,(err,res) => {
                 if (err) throw err;
                 client.close()
-                resolve()
+                resolve(false)
             })
         }
       })
     })
-    }).then()
+    }).then(err => {
+        if(err){
+            details = {err : true}
+        }
+    })
 
     return details
 }
 
-const deleteUser = async ({user_name,room_name}) => {
+const deleteUser = async ({user_name,room_name,io}) => {
 
     let details = {
         room_name,
+        room_id : '',
         users : []
     }
 
@@ -74,6 +92,7 @@ const deleteUser = async ({user_name,room_name}) => {
                 if (err) throw err
                 client.close()
                 details.users = newvals
+                io.to(result.room_id).emit('updateUsers',details)
                 resolve()
             })
         }

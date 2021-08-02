@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import './LoadingScreen.css'
 
-export const LoadingScreen = () => {
+export const LoadingScreen = ({text}) => {
 
     const useStyles = makeStyles({
         root: {
@@ -26,6 +26,6 @@ export const LoadingScreen = () => {
                 <div className='bar'/>
                 <div className='bar'/>
             </div>
-            <Typography className={classes.root}>GETTING READY</Typography>
+            <Typography className={classes.root}>{text}</Typography>
         </div>
 )}

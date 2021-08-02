@@ -7,18 +7,29 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",
     "server": "cd server && nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "googleapis": "^76.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.6",
+    "mongoose": "^5.12.13",
     "node-fetch": "^2.6.1",
+    "nodemailer": "^6.6.1",
     "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "socket.io": "^4.0.1",
     "socket.io-client": "^4.0.1"
   }

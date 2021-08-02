@@ -4,3 +4,7 @@
     border-radius: 10px;
     width: 100%;
 }
+
+.lines .MuiInputBase-input::-webkit-scrollbar-thumb{
+    display: none;
+}

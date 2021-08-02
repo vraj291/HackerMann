@@ -15,7 +15,8 @@ export const CreateUser = ({createRoom})=> {
 
     const useStyles = makeStyles({
         root: {
-            fontFamily : "'Titillium Web', sans-serif"
+            fontFamily : "'Titillium Web', sans-serif",
+            fontWeight : 'bold'
         }
     });
 
@@ -24,7 +25,7 @@ export const CreateUser = ({createRoom})=> {
     return(
         <>
         {loading === false ? (
-            <div className ='login'>
+            <div className ='create-user'>
                 <Typography variant='h4' className={classes.root}>
                     Start Coding
                 </Typography>
@@ -47,8 +48,9 @@ export const CreateUser = ({createRoom})=> {
                     color="secondary"
                     startIcon={<AddCircleOutlined />}
                     onClick={() => {
-                        createRoom(user,room)
-                        setLoading(true)
+                        createRoom(user,room).then(
+                            setLoading(true)
+                        )
                     }}
                 >
                     <Typography className={classes.root}>Create/Enter Room</Typography>

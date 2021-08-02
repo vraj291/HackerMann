@@ -1,0 +1,35 @@
+.profile-card-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.profile-card{
+    margin: 2rem 4rem;
+    padding: 3rem;
+    background-color: rgb(170, 202, 250);
+    color: black;
+    width: max-content;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap:1.5rem;
+}
+
+.profile-title{
+    margin: 4rem 0 2rem;
+    display: flex;
+    width:100%;
+    flex-flow: column;
+    justify-content: center;
+    gap:3rem;
+    align-items: center;
+}
+
+.log-out{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 4rem;
+}

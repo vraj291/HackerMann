@@ -1,0 +1,75 @@
+.popup-wrapper{
+    position: absolute;
+    color: rgb(30,215,96);
+    font-weight: bolder;
+    font-size: 1rem;
+    border-radius: .7rem;
+    border: solid rgb(30,215,96) 0.2rem;
+    box-shadow: 0 0 3rem rgb(30,215,96);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    text-transform: uppercase;
+    right: 2%;
+    top : 5.7rem;
+    padding: 0.8rem;
+    z-index: 3;
+    animation: come-in 1s ease-out;
+}
+
+.popup{
+    position: relative;
+    margin: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: noti-fade-in 1.5s ease;
+}
+
+.status-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+@keyframes noti-fade-in {
+    from{
+        opacity: 0;
+    }
+}
+
+.popup::before{
+    content: ' ';
+    width: 100%;
+    transform: scaleX(1);
+    height: 0.4rem;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    border-radius: 10rem;
+    z-index: 8;
+    top: 125%;
+    right : 0%;
+    transition: transform 5s ease-out;
+    transform-origin: right;
+}
+
+.timer .popup::before{
+    transform: scaleX(0);
+}
+
+.come-out{
+    transform: translateX(20rem);
+    opacity : 0;
+    transition: all 1s ease;
+}
+
+@keyframes come-in {
+    from{
+        right: -50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .popup-wrapper{
+        box-shadow: 0 0 3rem black;
+    }
+}

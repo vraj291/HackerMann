@@ -19,6 +19,7 @@
     font-family : 'Saira Condensed', sans-serif;
     display: none;
     cursor: help;
+    z-index: 2;
 }
 
 .butt:hover > .label-hidden{
